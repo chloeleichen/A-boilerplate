@@ -1,18 +1,21 @@
 'use strict';
 
 describe('myApp view2', function() {
-  var view2Ctrl, scope;
   beforeEach(module('myApp'));
 
-  describe('view2 controller', function(){
+  var $controller;
 
-    it('should ....', inject(function($controller, $rootScope) {
-      //spec body
-      scope= $rootScope.$new();
-      view2Ctrl = $controller('View2Controller', {$scope: scope});
-      expect(view2Ctrl).toBeDefined();
-    }));
+  beforeEach(inject(function(_$controller_){
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
+  }));
 
+  describe('$scope', function() {
+    var $scope, controller;
+
+    beforeEach(function(){
+      $scope = {};
+      controller = $controller('View2Controller', {$scope: $scope});
+    });
   });
 });
-

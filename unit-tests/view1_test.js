@@ -1,18 +1,34 @@
 'use strict';
 
 describe('myApp view1', function() {
-  var view1Ctrl, scope;
   beforeEach(module('myApp'));
 
-  describe('view1 controller', function(){
+  var $controller;
 
-    it('should ....', inject(function($controller, $rootScope) {
-      //spec body
-      scope= $rootScope.$new();
-      view1Ctrl = $controller('View1Controller', {$scope: scope});
-      expect(view1Ctrl).toBeDefined();
-    }));
+  beforeEach(inject(function(_$controller_){
+    // The injector unwraps the underscores (_) from around the parameter names when matching
+    $controller = _$controller_;
+  }));
+
+  describe('$scope', function() {
+    var $scope, controller;
+
+    beforeEach(function(){
+      $scope = {};
+      controller = $controller('View1Controller', {$scope: $scope});
+    });
+    //controller defined
+    it('view1 controller defined', function(){
+      expect(controller).toBeDefined();
+    });
+    //list defined
+    it('a list exists', function() {
+      expect($scope.list).toBeDefined();
+    });
+
+    it('first item should be 0', function() {
+      expect($scope.list[0]).toEqual(0);
+    });
 
   });
 });
-
