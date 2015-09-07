@@ -10,7 +10,7 @@ describe('myApp view2', function() {
     $controller = _$controller_;
   }));
 
-  describe('$scope', function() {
+  describe('view2', function() {
     var $scope, controller;
 
     beforeEach(function(){
